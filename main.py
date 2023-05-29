@@ -3,18 +3,16 @@ from std_srvs.srv import Empty, EmptyResponse
 import rospy
 
 def go_home():
-    rospy.wait_for_service('trigger')
     try:
-        trigger = rospy.ServiceProxy('/go_home', Empty)
+        trigger = rospy.ServiceProxy('go_home', Empty)
         print("Please do something.")
         resp1 = trigger()       
         print("done")
     except rospy.ServiceException as e:
         print("Service call failed: %s"%e)
 def go_to_kitchen():
-    rospy.wait_for_service('trigger')
     try:
-        trigger = rospy.ServiceProxy('/go_to_kitchen', Empty)
+        trigger = rospy.ServiceProxy('go_to_kitchen', Empty)
         print("Please do something.")
         resp1 = trigger()       
         print("done")
@@ -22,9 +20,8 @@ def go_to_kitchen():
         print("Service call failed: %s"%e)
        
 def stop():
-    rospy.wait_for_service('trigger')
     try:
-        trigger = rospy.ServiceProxy('/stop', Empty)
+        trigger = rospy.ServiceProxy('stop', Empty)
         print("Please do something.")
         resp1 = trigger()       
         print("done")
@@ -33,3 +30,5 @@ def stop():
                 
 if __name__ == "__main__":
     go_home()
+    go_to_kitchen()
+    stop()
