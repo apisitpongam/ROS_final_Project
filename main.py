@@ -29,6 +29,8 @@ def stop():
         print("Service call failed: %s"%e)
                 
 if __name__ == "__main__":
-    go_home()
     go_to_kitchen()
     stop()
+    go_home()
+    stop()
+   
